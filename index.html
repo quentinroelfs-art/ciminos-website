@@ -1500,6 +1500,482 @@
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => document.getElementById('nav-menu').classList.remove('active'));
         });
+
+        // ============================================
+        // PIZZA RUNNER - Secret Easter Egg Game!
+        // Trigger: Konami Code (↑↑↓↓←→←→BA)
+        // ============================================
+
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    konamiIndex = 0;
+                    startPizzaGame();
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+
+        function startPizzaGame() {
+            // Create game overlay
+            const gameOverlay = document.createElement('div');
+            gameOverlay.id = 'pizza-game-overlay';
+            gameOverlay.innerHTML = `
+                <style>
+                    #pizza-game-overlay {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.95);
+                        z-index: 10000;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        font-family: 'Press Start 2P', 'Courier New', monospace;
+                    }
+                    #pizza-game-overlay h2 {
+                        color: #ffd700;
+                        font-size: 24px;
+                        margin-bottom: 10px;
+                        text-shadow: 2px 2px #c41e3a;
+                    }
+                    #pizza-game-overlay .subtitle {
+                        color: #fff;
+                        font-size: 12px;
+                        margin-bottom: 20px;
+                    }
+                    #pizza-game-canvas {
+                        border: 4px solid #c41e3a;
+                        border-radius: 8px;
+                        background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 60%, #228B22 60%, #228B22 100%);
+                    }
+                    #game-ui {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 600px;
+                        margin-top: 15px;
+                        color: #fff;
+                        font-size: 14px;
+                    }
+                    #close-game {
+                        position: absolute;
+                        top: 20px;
+                        right: 30px;
+                        background: #c41e3a;
+                        color: white;
+                        border: none;
+                        padding: 10px 20px;
+                        font-size: 14px;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        font-family: inherit;
+                    }
+                    #close-game:hover { background: #a01830; }
+                    #game-instructions {
+                        color: #aaa;
+                        font-size: 10px;
+                        margin-top: 10px;
+                    }
+                    .game-over-screen {
+                        position: absolute;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                    }
+                    .game-over-screen h3 {
+                        color: #c41e3a;
+                        font-size: 28px;
+                        margin-bottom: 15px;
+                    }
+                    .play-again-btn {
+                        background: #1a5d1a;
+                        color: white;
+                        border: none;
+                        padding: 15px 30px;
+                        font-size: 14px;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        margin-top: 15px;
+                        font-family: inherit;
+                    }
+                    .play-again-btn:hover { background: #2d8a2d; }
+                </style>
+                <button id="close-game">✕ ESC to Close</button>
+                <h2>🍕 PIZZA RUNNER 🍕</h2>
+                <p class="subtitle">A Cimino's Little Italy Easter Egg</p>
+                <canvas id="pizza-game-canvas" width="600" height="300"></canvas>
+                <div id="game-ui">
+                    <span>Score: <span id="game-score">0</span></span>
+                    <span>High Score: <span id="high-score">0</span></span>
+                </div>
+                <p id="game-instructions">SPACE or CLICK to jump! Avoid the obstacles!</p>
+            `;
+            document.body.appendChild(gameOverlay);
+
+            const canvas = document.getElementById('pizza-game-canvas');
+            const ctx = canvas.getContext('2d');
+            const scoreEl = document.getElementById('game-score');
+            const highScoreEl = document.getElementById('high-score');
+
+            let highScore = localStorage.getItem('pizzaRunnerHighScore') || 0;
+            highScoreEl.textContent = highScore;
+
+            // Game state
+            let gameRunning = true;
+            let score = 0;
+            let gameSpeed = 5;
+            let gravity = 0.6;
+            let jumpForce = -12;
+
+            // Pizza player
+            const pizza = {
+                x: 80,
+                y: 220,
+                width: 50,
+                height: 50,
+                velocityY: 0,
+                isJumping: false,
+                rotation: 0
+            };
+
+            // Obstacles
+            let obstacles = [];
+            let obstacleTimer = 0;
+            const obstacleTypes = ['tomato', 'meatball', 'pepper', 'mushroom'];
+
+            // Ground position
+            const groundY = 270;
+
+            // Draw pizza slice
+            function drawPizza() {
+                ctx.save();
+                ctx.translate(pizza.x + pizza.width/2, pizza.y + pizza.height/2);
+                ctx.rotate(pizza.rotation);
+
+                // Pizza slice shape
+                ctx.beginPath();
+                ctx.moveTo(0, -25);
+                ctx.lineTo(-20, 20);
+                ctx.lineTo(20, 20);
+                ctx.closePath();
+
+                // Crust (outer edge)
+                ctx.fillStyle = '#D2691E';
+                ctx.fill();
+
+                // Cheese
+                ctx.beginPath();
+                ctx.moveTo(0, -20);
+                ctx.lineTo(-16, 16);
+                ctx.lineTo(16, 16);
+                ctx.closePath();
+                ctx.fillStyle = '#FFD700';
+                ctx.fill();
+
+                // Pepperoni
+                ctx.fillStyle = '#8B0000';
+                ctx.beginPath();
+                ctx.arc(-5, 5, 5, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.beginPath();
+                ctx.arc(6, -5, 4, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.beginPath();
+                ctx.arc(0, 12, 4, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            // Draw obstacles
+            function drawObstacle(obs) {
+                ctx.save();
+                ctx.translate(obs.x + obs.width/2, obs.y + obs.height/2);
+
+                if (obs.type === 'tomato') {
+                    // Red tomato
+                    ctx.fillStyle = '#FF6347';
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 18, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Stem
+                    ctx.fillStyle = '#228B22';
+                    ctx.fillRect(-3, -22, 6, 8);
+                    // Leaf
+                    ctx.beginPath();
+                    ctx.ellipse(8, -18, 8, 4, 0.5, 0, Math.PI * 2);
+                    ctx.fill();
+                } else if (obs.type === 'meatball') {
+                    // Brown meatball
+                    ctx.fillStyle = '#8B4513';
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 16, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Texture
+                    ctx.fillStyle = '#654321';
+                    ctx.beginPath();
+                    ctx.arc(-5, -3, 3, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(4, 4, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                } else if (obs.type === 'pepper') {
+                    // Green pepper
+                    ctx.fillStyle = '#228B22';
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, 10, 18, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.fillStyle = '#006400';
+                    ctx.fillRect(-2, -22, 4, 6);
+                } else if (obs.type === 'mushroom') {
+                    // Mushroom
+                    ctx.fillStyle = '#DEB887';
+                    ctx.fillRect(-5, 0, 10, 15);
+                    ctx.fillStyle = '#8B4513';
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 15, Math.PI, 0);
+                    ctx.fill();
+                    // Spots
+                    ctx.fillStyle = '#F5DEB3';
+                    ctx.beginPath();
+                    ctx.arc(-6, -5, 4, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(5, -3, 3, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                ctx.restore();
+            }
+
+            // Draw ground
+            function drawGround() {
+                ctx.fillStyle = '#228B22';
+                ctx.fillRect(0, groundY, canvas.width, 30);
+
+                // Grass details
+                ctx.fillStyle = '#1a5d1a';
+                for (let i = 0; i < canvas.width; i += 20) {
+                    ctx.fillRect(i, groundY, 2, 5);
+                }
+            }
+
+            // Draw clouds
+            function drawClouds() {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.beginPath();
+                ctx.arc(100, 50, 25, 0, Math.PI * 2);
+                ctx.arc(130, 50, 30, 0, Math.PI * 2);
+                ctx.arc(160, 50, 25, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.arc(400, 80, 20, 0, Math.PI * 2);
+                ctx.arc(425, 80, 25, 0, Math.PI * 2);
+                ctx.arc(450, 80, 20, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // Jump function
+            function jump() {
+                if (!pizza.isJumping && gameRunning) {
+                    pizza.velocityY = jumpForce;
+                    pizza.isJumping = true;
+                }
+            }
+
+            // Spawn obstacle
+            function spawnObstacle() {
+                const type = obstacleTypes[Math.floor(Math.random() * obstacleTypes.length)];
+                obstacles.push({
+                    x: canvas.width,
+                    y: groundY - 35,
+                    width: 35,
+                    height: 35,
+                    type: type
+                });
+            }
+
+            // Check collision
+            function checkCollision(obs) {
+                const pizzaBox = {
+                    x: pizza.x + 10,
+                    y: pizza.y + 10,
+                    width: pizza.width - 20,
+                    height: pizza.height - 20
+                };
+
+                return pizzaBox.x < obs.x + obs.width - 10 &&
+                       pizzaBox.x + pizzaBox.width > obs.x + 10 &&
+                       pizzaBox.y < obs.y + obs.height - 10 &&
+                       pizzaBox.y + pizzaBox.height > obs.y + 10;
+            }
+
+            // Game over
+            function gameOver() {
+                gameRunning = false;
+
+                if (score > highScore) {
+                    highScore = score;
+                    localStorage.setItem('pizzaRunnerHighScore', highScore);
+                    highScoreEl.textContent = highScore;
+                }
+
+                // Draw game over screen
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = '#c41e3a';
+                ctx.font = 'bold 36px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('GAME OVER!', canvas.width/2, 120);
+
+                ctx.fillStyle = '#FFD700';
+                ctx.font = '20px Arial';
+                ctx.fillText('Score: ' + score, canvas.width/2, 160);
+
+                if (score >= highScore && score > 0) {
+                    ctx.fillStyle = '#1a5d1a';
+                    ctx.fillText('NEW HIGH SCORE!', canvas.width/2, 190);
+                }
+
+                ctx.fillStyle = '#fff';
+                ctx.font = '16px Arial';
+                ctx.fillText('Press SPACE or CLICK to play again', canvas.width/2, 240);
+            }
+
+            // Reset game
+            function resetGame() {
+                pizza.y = 220;
+                pizza.velocityY = 0;
+                pizza.isJumping = false;
+                pizza.rotation = 0;
+                obstacles = [];
+                score = 0;
+                gameSpeed = 5;
+                obstacleTimer = 0;
+                gameRunning = true;
+                scoreEl.textContent = '0';
+            }
+
+            // Game loop
+            function gameLoop() {
+                // Clear canvas with sky gradient
+                const gradient = ctx.createLinearGradient(0, 0, 0, groundY);
+                gradient.addColorStop(0, '#87CEEB');
+                gradient.addColorStop(1, '#B0E0E6');
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, canvas.width, groundY);
+
+                drawClouds();
+                drawGround();
+
+                if (gameRunning) {
+                    // Update pizza
+                    pizza.velocityY += gravity;
+                    pizza.y += pizza.velocityY;
+
+                    // Ground collision
+                    if (pizza.y >= 220) {
+                        pizza.y = 220;
+                        pizza.velocityY = 0;
+                        pizza.isJumping = false;
+                    }
+
+                    // Rotate pizza while jumping
+                    if (pizza.isJumping) {
+                        pizza.rotation += 0.15;
+                    } else {
+                        pizza.rotation = 0;
+                    }
+
+                    // Spawn obstacles
+                    obstacleTimer++;
+                    if (obstacleTimer > 100 - Math.min(score/5, 50)) {
+                        spawnObstacle();
+                        obstacleTimer = 0;
+                    }
+
+                    // Update obstacles
+                    for (let i = obstacles.length - 1; i >= 0; i--) {
+                        obstacles[i].x -= gameSpeed;
+
+                        // Check collision
+                        if (checkCollision(obstacles[i])) {
+                            gameOver();
+                        }
+
+                        // Remove off-screen obstacles
+                        if (obstacles[i].x + obstacles[i].width < 0) {
+                            obstacles.splice(i, 1);
+                            score += 10;
+                            scoreEl.textContent = score;
+
+                            // Increase speed gradually
+                            if (score % 50 === 0) {
+                                gameSpeed += 0.5;
+                            }
+                        }
+                    }
+                }
+
+                // Draw obstacles
+                obstacles.forEach(obs => drawObstacle(obs));
+
+                // Draw pizza
+                drawPizza();
+
+                if (gameRunning) {
+                    requestAnimationFrame(gameLoop);
+                }
+            }
+
+            // Event listeners
+            function handleInput(e) {
+                if (e.type === 'keydown' && e.code !== 'Space') return;
+                e.preventDefault();
+
+                if (!gameRunning) {
+                    resetGame();
+                    gameLoop();
+                } else {
+                    jump();
+                }
+            }
+
+            canvas.addEventListener('click', handleInput);
+            document.addEventListener('keydown', (e) => {
+                if (e.code === 'Space' && document.getElementById('pizza-game-overlay')) {
+                    handleInput(e);
+                }
+                if (e.code === 'Escape') {
+                    closeGame();
+                }
+            });
+
+            // Close game function
+            function closeGame() {
+                const overlay = document.getElementById('pizza-game-overlay');
+                if (overlay) {
+                    overlay.remove();
+                }
+            }
+
+            document.getElementById('close-game').addEventListener('click', closeGame);
+
+            // Start the game!
+            gameLoop();
+        }
     </script>
 </body>
 </html>
