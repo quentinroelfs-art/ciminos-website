@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cimino's Little Italy | Italian Restaurant | Freeport, IL</title>
+    <meta name="description" content="Freeport's Premier Italian Restaurant & Pizzeria. Family-owned since 1977.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-green: #1a5d1a; --primary-red: #c41e3a; --cream: #faf8f5; --dark: #2d2d2d; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; color: var(--dark); background-color: var(--cream); line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        a { color: var(--primary-green); text-decoration: none; }
+        a:hover { color: var(--primary-red); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .top-bar { background-color: var(--dark); color: var(--white); padding: 10px 0; text-align: center; font-size: 14px; }
+        .top-bar a { color: var(--white); font-weight: 600; }
+        header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; max-width: 1200px; margin: 0 auto; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--dark); }
+        .logo span { color: var(--primary-green); }
+        nav { display: flex; gap: 30px; }
+        nav a { color: var(--dark); font-weight: 500; }
+        .phone-header { font-weight: 600; font-size: 18px; color: var(--primary-green); }
+        .menu-toggle { display: none; background: none; border: none; font-size: 28px; cursor: pointer; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1920') center/cover; color: var(--white); padding: 120px 20px; text-align: center; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 22px; margin-bottom: 30px; font-style: italic; }
+        .btn { display: inline-block; padding: 15px 40px; border-radius: 5px; font-weight: 600; font-size: 18px; transition: all 0.3s; cursor: pointer; }
+        .btn-primary { background-color: var(--primary-red); color: var(--white); border: none; }
+        .btn-primary:hover { background-color: #a01830; }
+        .btn-secondary { background-color: transparent; border: 2px solid var(--white); color: var(--white); margin-left: 15px; }
+        .btn-secondary:hover { background-color: var(--white); color: var(--dark); }
+        .about { padding: 80px 20px; text-align: center; }
+        .about h2 { font-size: 36px; margin-bottom: 20px; color: var(--primary-green); }
+        .about p { max-width: 800px; margin: 0 auto 30px; font-size: 18px; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
+        .feature { padding: 30px; background: var(--white); border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
+        .feature-icon { font-size: 48px; margin-bottom: 15px; }
+        .feature h3 { font-size: 22px; margin-bottom: 10px; color: var(--primary-red); }
+        .full-menu { background-color: var(--white); padding: 80px 20px; }
+        .full-menu h2 { text-align: center; font-size: 36px; margin-bottom: 20px; color: var(--primary-green); }
+        .menu-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; padding: 20px; background: var(--cream); border-radius: 10px; }
+        .menu-nav a { padding: 8px 16px; background: var(--white); border-radius: 20px; font-size: 14px; border: 1px solid #ddd; }
+        .menu-nav a:hover { background: var(--primary-red); color: var(--white); }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1400px; margin: 0 auto; }
+        .menu-category { background: var(--cream); padding: 25px; border-radius: 10px; border-left: 4px solid var(--primary-red); }
+        .menu-category h3 { font-size: 22px; margin-bottom: 15px; color: var(--primary-red); padding-bottom: 10px; border-bottom: 2px solid var(--primary-red); }
+        .menu-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #ddd; }
+        .menu-item:last-child { border-bottom: none; }
+        .menu-item-name { font-weight: 500; flex: 1; }
+        .menu-item-desc { font-size: 13px; color: #666; font-style: italic; }
+        .menu-item-price { color: var(--primary-green); font-weight: 600; margin-left: 10px; }
+        .menu-cta { text-align: center; margin-top: 40px; padding: 30px; background: var(--cream); border-radius: 10px; }
+        .specials { background: linear-gradient(135deg, var(--primary-green), #2d8a2d); color: var(--white); padding: 60px 20px; text-align: center; }
+        .specials h2 { font-size: 32px; margin-bottom: 15px; }
+        .specials p { font-size: 20px; margin-bottom: 25px; }
+        .info-section { padding: 80px 20px; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .info-card { background: var(--white); padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); text-align: center; }
+        .info-card h3 { font-size: 26px; margin-bottom: 25px; color: var(--primary-green); }
+        .hours-list { list-style: none; }
+        .hours-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
+        .address { font-size: 18px; line-height: 1.8; }
+        .address a { display: inline-block; margin-top: 15px; font-weight: 600; }
+        .contact-info p { font-size: 18px; margin-bottom: 15px; }
+        .map-section { height: 400px; background: #ddd; }
+        .map-section iframe { width: 100%; height: 100%; border: none; }
+        footer { background-color: var(--dark); color: var(--white); padding: 50px 20px 30px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto 40px; }
+        .footer-section h4 { font-size: 20px; margin-bottom: 20px; }
+        .footer-section p, .footer-section a { color: #ccc; margin-bottom: 10px; display: block; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: #888; font-size: 14px; }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            nav { display: none; width: 100%; flex-direction: column; gap: 15px; padding: 20px 0; text-align: center; }
+            nav.active { display: flex; }
+            .phone-header { display: none; }
+            .hero h1 { font-size: 32px; }
+            .btn { display: block; margin: 10px auto; max-width: 280px; }
+            .btn-secondary { margin-left: 0; }
+            .menu-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar"><div class="container">Freeport's Premier Italian Restaurant & Pizzeria • Family Owned Since 1977 • <a href="tel:815-235-8700">(815) 235-8700</a></div></div>
+    <header><div class="header-content"><div class="logo">Cimino's <span>Little Italy</span></div><button class="menu-toggle" onclick="toggleMenu()">☰</button><nav id="nav-menu"><a href="#home">Home</a><a href="#about">About</a><a href="#menu">Menu</a><a href="#hours">Hours</a><a href="#contact">Contact</a></nav><a href="tel:815-235-8700" class="phone-header">(815) 235-8700</a></div></header>
+    <section class="hero" id="home"><div class="container"><h1>Authentic Italian Cuisine</h1><p>Pizza, Pasta, and More Italian Favorites</p><a href="https://www.doordash.com/store/cimino's-little-itay-freeport-1278365/" class="btn btn-primary" target="_blank">Order on DoorDash</a><a href="#menu" class="btn btn-secondary">View Menu</a></div></section>
+    <section class="about" id="about"><div class="container"><h2>Welcome to Cimino's Little Italy</h2><p>If you're in the mood for authentic, hand-crafted Italian cuisine with age-old recipes passed down through the generations, you've come to the right place.</p><div class="features"><div class="feature"><div class="feature-icon">🍕</div><h3>Fresh Made Pizza</h3><p>Hand-tossed dough, homemade sauce, and premium toppings.</p></div><div class="feature"><div class="feature-icon">👨‍👩‍👧‍👦</div><h3>Family Owned</h3><p>Serving Freeport with love since 1977.</p></div><div class="feature"><div class="feature-icon">🚗</div><h3>Dine-In, Takeout & Delivery</h3><p>Enjoy our food however is most convenient.</p></div></div></div></section>
+    <section class="full-menu" id="menu"><div class="container"><h2>Our Full Menu</h2><p style="text-align:center;margin-bottom:40px;">Authentic Italian favorites made fresh daily.</p>
+            <div class="menu-nav"><a href="#pizzas">Pizzas</a><a href="#pasta">Pasta</a><a href="#appetizers">Appetizers</a><a href="#chicken">Chicken</a><a href="#seafood">Seafood</a><a href="#steak">Steak</a><a href="#sandwiches">Sandwiches</a><a href="#burgers">Burgers</a><a href="#calzones">Calzones</a><a href="#salads">Salads</a><a href="#sides">Sides</a><a href="#desserts">Desserts</a></div>
+            <div class="menu-grid">
+                <div class="menu-category" id="pizzas"><h3>🍕 Classic Pizzas</h3><div class="menu-item"><span class="menu-item-name">10" Pizza (Small)</span><span class="menu-item-price">$10.99</span></div><div class="menu-item"><span class="menu-item-name">12" Pizza (Medium)</span><span class="menu-item-price">$11.99</span></div><div class="menu-item"><span class="menu-item-name">14" Pizza (Large)</span><span class="menu-item-price">$12.99</span></div><div class="menu-item"><span class="menu-item-name">16" Pizza (X-Large)</span><span class="menu-item-price">$14.99</span></div></div>
+                <div class="menu-category"><h3>🍕 Gourmet Pizzas</h3><div class="menu-item"><span class="menu-item-name">Specialty Gourmet</span><span class="menu-item-price">$16.99+</span></div><div class="menu-item"><span class="menu-item-name">BBQ Chicken Pizza</span><span class="menu-item-price">$17.99</span></div><div class="menu-item"><span class="menu-item-name">Meat Lovers Pizza</span><span class="menu-item-price">$18.99</span></div><div class="menu-item"><span class="menu-item-name">Veggie Supreme</span><span class="menu-item-price">$17.99</span></div></div>
+                <div class="menu-category" id="pasta"><h3>🍝 Pastabilities</h3><div class="menu-item"><span class="menu-item-name">Fettuccine Alfredo</span><span class="menu-item-price">$17.99</span></div><div class="menu-item"><span class="menu-item-name">Cimino Lasagna</span><span class="menu-item-price">$16.99</span></div><div class="menu-item"><span class="menu-item-name">Baked Mostaccioli</span><span class="menu-item-price">$15.99</span></div><div class="menu-item"><span class="menu-item-name">Chicken Parmigiana</span><span class="menu-item-price">$18.99</span></div><div class="menu-item"><span class="menu-item-name">Spaghetti & Meatballs</span><span class="menu-item-price">$15.99</span></div></div>
+                <div class="menu-category" id="appetizers"><h3>🍗 Things To Share</h3><div class="menu-item"><span class="menu-item-name">Bone In Wings (10pc)</span><span class="menu-item-price">$13.99</span></div><div class="menu-item"><span class="menu-item-name">Boneless Wings (10pc)</span><span class="menu-item-price">$11.99</span></div><div class="menu-item"><span class="menu-item-name">Pizza Cheese Sticks</span><span class="menu-item-price">$11.99</span></div><div class="menu-item"><span class="menu-item-name">Spinach & Artichoke Dip</span><span class="menu-item-price">$11.99</span></div><div class="menu-item"><span class="menu-item-name">Parmesan Beer Nuggets</span><span class="menu-item-price">$12.99</span></div><div class="menu-item"><span class="menu-item-name">Combo Platter</span><span class="menu-item-price">$15.99</span></div></div>
+                <div class="menu-category" id="chicken"><h3>🍗 Mama's Chicken</h3><div class="menu-item"><span class="menu-item-name">6pc Chicken George</span><span class="menu-item-price">$13.99</span></div><div class="menu-item"><span class="menu-item-name">12pc Chicken George</span><span class="menu-item-price">$22.99</span></div><div class="menu-item"><span class="menu-item-name">24pc Chicken George</span><span class="menu-item-price">$35.99</span></div><div class="menu-item"><span class="menu-item-name">Mama's Fried Chicken (4pc)</span><span class="menu-item-price">$14.99</span></div><div class="menu-item"><span class="menu-item-name">Mama's Fried Chicken (8pc)</span><span class="menu-item-price">$22.99</span></div></div>
+                <div class="menu-category" id="seafood"><h3>🦐 Seafood</h3><div class="menu-item"><span class="menu-item-name">Gulf Shrimp</span><span class="menu-item-price">$19.99</span></div><div class="menu-item"><span class="menu-item-name">Fish & Chips</span><span class="menu-item-price">$17.99</span></div><div class="menu-item"><span class="menu-item-name">Cod Dinner</span><span class="menu-item-price">$18.99</span></div><div class="menu-item"><span class="menu-item-name">Salmon</span><span class="menu-item-price">$20.99</span></div></div>
+                <div class="menu-category" id="steak"><h3>🥩 Steak</h3><div class="menu-item"><span class="menu-item-name">Ribeye Steak</span><span class="menu-item-price">$24.99</span></div><div class="menu-item"><span class="menu-item-name">NY Strip</span><span class="menu-item-price">$22.99</span></div><div class="menu-item"><span class="menu-item-name">Sirloin Steak</span><span class="menu-item-price">$19.99</span></div></div>
+                <div class="menu-category" id="sandwiches"><h3>🥪 Sandwiches</h3><div class="menu-item"><span class="menu-item-name">Italian Beef</span><span class="menu-item-price">$12.99</span></div><div class="menu-item"><span class="menu-item-name">Meatball Sub</span><span class="menu-item-price">$11.99</span></div><div class="menu-item"><span class="menu-item-name">Chicken Parmesan Sub</span><span class="menu-item-price">$12.99</span></div><div class="menu-item"><span class="menu-item-name">Philly Cheesesteak</span><span class="menu-item-price">$13.99</span></div></div>
+                <div class="menu-category" id="burgers"><h3>🍔 Burgers</h3><div class="menu-item"><span class="menu-item-name">Classic Burger</span><span class="menu-item-price">$11.99</span></div><div class="menu-item"><span class="menu-item-name">Bacon Cheeseburger</span><span class="menu-item-price">$13.99</span></div><div class="menu-item"><span class="menu-item-name">BBQ Burger</span><span class="menu-item-price">$12.99</span></div><div class="menu-item"><span class="menu-item-name">Mushroom Swiss</span><span class="menu-item-price">$13.99</span></div></div>
+                <div class="menu-category" id="calzones"><h3>🥟 Calzones</h3><div class="menu-item"><span class="menu-item-name">Cheese Calzone</span><span class="menu-item-price">$12.99</span></div><div class="menu-item"><span class="menu-item-name">Pepperoni Calzone</span><span class="menu-item-price">$13.99</span></div><div class="menu-item"><span class="menu-item-name">Meat Lovers Calzone</span><span class="menu-item-price">$15.99</span></div><div class="menu-item"><span class="menu-item-name">Veggie Calzone</span><span class="menu-item-price">$14.99</span></div></div>
+                <div class="menu-category" id="salads"><h3>🥗 Salads</h3><div class="menu-item"><span class="menu-item-name">House Salad</span><span class="menu-item-price">$7.99</span></div><div class="menu-item"><span class="menu-item-name">Caesar Salad</span><span class="menu-item-price">$9.99</span></div><div class="menu-item"><span class="menu-item-name">Grilled Chicken Salad</span><span class="menu-item-price">$13.99</span></div><div class="menu-item"><span class="menu-item-name">Antipasto Salad</span><span class="menu-item-price">$14.99</span></div></div>
+                <div class="menu-category" id="sides"><h3>🍟 Sides</h3><div class="menu-item"><span class="menu-item-name">Mac & Cheese</span><span class="menu-item-price">$6.00</span></div><div class="menu-item"><span class="menu-item-name">French Fries</span><span class="menu-item-price">$4.99</span></div><div class="menu-item"><span class="menu-item-name">Onion Rings</span><span class="menu-item-price">$5.99</span></div><div class="menu-item"><span class="menu-item-name">Garlic Bread</span><span class="menu-item-price">$4.99</span></div></div>
+                <div class="menu-category" id="desserts"><h3>🍰 Desserts</h3><div class="menu-item"><span class="menu-item-name">Tiramisu</span><span class="menu-item-price">$7.99</span></div><div class="menu-item"><span class="menu-item-name">Cannoli</span><span class="menu-item-price">$5.99</span></div><div class="menu-item"><span class="menu-item-name">Cheesecake</span><span class="menu-item-price">$6.99</span></div><div class="menu-item"><span class="menu-item-name">Lemon Ice</span><span class="menu-item-price">$4.99</span></div></div>
+            </div>
+            <div class="menu-cta"><p style="margin-bottom:20px;font-size:18px;"><strong>Order Online or Call Us!</strong></p><a href="https://www.doordash.com/store/cimino's-little-itay-freeport-1278365/" class="btn btn-primary" target="_blank">Order on DoorDash</a><a href="tel:815-235-8700" class="btn btn-secondary" style="color:var(--dark);border-color:var(--dark);">Call (815) 235-8700</a></div>
+        </div></section>
+    <section class="specials"><div class="container"><h2>🐟 Fish Friday Special!</h2><p>3 Piece Cod Special - Fried or Grilled - $12.99</p><a href="tel:815-235-8700" class="btn btn-primary">Order Now</a></div></section>
+    <section class="info-section" id="hours"><div class="info-grid">
+        <div class="info-card"><h3>⏰ Hours</h3><ul class="hours-list"><li><span>Monday - Thursday</span><span>11:00 AM - 10:00 PM</span></li><li><span>Friday - Saturday</span><span>11:00 AM - 12:00 AM</span></li><li><span>Sunday</span><span>11:00 AM - 9:00 PM</span></li></ul></div>
+        <div class="info-card"><h3>📍 Location</h3><div class="address"><p>421 Challenge St</p><p>Freeport, IL 61032</p><a href="https://maps.google.com/?q=421+Challenge+St+Freeport+IL+61032" target="_blank">Get Directions →</a></div></div>
+        <div class="info-card" id="contact"><h3>📞 Contact Us</h3><div class="contact-info"><p>Phone: <a href="tel:815-235-8700">(815) 235-8700</a></p><p>Email: <a href="mailto:ciminosalvo@yahoo.com">ciminosalvo@yahoo.com</a></p></div></div>
+    </div></section>
+    <section class="map-section"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2954.5!2d-89.6212!3d42.2967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s421%20Challenge%20St%2C%20Freeport%2C%20IL%2061032!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy"></iframe></section>
+    <footer><div class="footer-content">
+        <div class="footer-section"><h4>Cimino's Little Italy</h4><p>Freeport's Premier Italian Restaurant</p><p>Family Owned Since 1977</p></div>
+        <div class="footer-section"><h4>Quick Links</h4><a href="#home">Home</a><a href="#about">About Us</a><a href="#menu">Menu</a><a href="#contact">Contact</a></div>
+        <div class="footer-section"><h4>Contact</h4><p>421 Challenge St</p><p>Freeport, IL 61032</p><a href="tel:815-235-8700">(815) 235-8700</a></div>
+        <div class="footer-section"><h4>Services</h4><p>Dine-In</p><p>Takeout</p><p>Delivery</p><p>Catering</p></div>
+    </div><div class="footer-bottom"><p>© 2026 Cimino's Little Italy. All rights reserved.</p></div></footer>
+    <script>function toggleMenu(){document.getElementById('nav-menu').classList.toggle('active');}</script>
+</body>
+</html>
