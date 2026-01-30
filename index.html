@@ -4,36 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cimino's Little Italy | Italian Restaurant | Freeport, IL</title>
-    <meta name="description" content="Freeport's Premier Italian Restaurant & Pizzeria. Family-owned since 1977.">
+    <meta name="description" content="Freeport's Premier Italian Restaurant & Pizzeria. Family-owned since 1977. Pizza, pasta, and authentic Italian cuisine. Dine-in, takeout, and delivery available.">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
-        :root { --primary-green: #1a5d1a; --primary-red: #c41e3a; --cream: #faf8f5; --dark: #2d2d2d; --white: #ffffff; }
+        :root {
+            --primary-green: #1a5d1a;
+            --primary-red: #c41e3a;
+            --cream: #faf8f5;
+            --dark: #2d2d2d;
+            --white: #ffffff;
+            --gold: #d4a853;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Open Sans', sans-serif; color: var(--dark); background-color: var(--cream); line-height: 1.6; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            background-color: var(--cream);
+            line-height: 1.6;
+        }
+
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
         a { color: var(--primary-green); text-decoration: none; }
         a:hover { color: var(--primary-red); }
+
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .top-bar { background-color: var(--dark); color: var(--white); padding: 10px 0; text-align: center; font-size: 14px; }
+
+        /* TOP BAR */
+        .top-bar {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+        }
         .top-bar a { color: var(--white); font-weight: 600; }
-        header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        .header-content { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; max-width: 1200px; margin: 0 auto; }
+        .top-bar a:hover { color: var(--primary-red); }
+
+        /* HEADER */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
         .logo { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--dark); }
         .logo span { color: var(--primary-green); }
         nav { display: flex; gap: 30px; }
-        nav a { color: var(--dark); font-weight: 500; }
+        nav a { color: var(--dark); font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: var(--primary-red); }
         .phone-header { font-weight: 600; font-size: 18px; color: var(--primary-green); }
-        .menu-toggle { display: none; background: none; border: none; font-size: 28px; cursor: pointer; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1920') center/cover; color: var(--white); padding: 120px 20px; text-align: center; }
+        .menu-toggle { display: none; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--dark); }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1920') center/cover;
+            color: var(--white);
+            padding: 120px 20px;
+            text-align: center;
+        }
         .hero h1 { font-size: 48px; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         .hero p { font-size: 22px; margin-bottom: 30px; font-style: italic; }
-        .btn { display: inline-block; padding: 15px 40px; border-radius: 5px; font-weight: 600; font-size: 18px; transition: all 0.3s; cursor: pointer; }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
         .btn-primary { background-color: var(--primary-red); color: var(--white); border: none; }
-        .btn-primary:hover { background-color: #a01830; }
+        .btn-primary:hover { background-color: #a01830; color: var(--white); }
         .btn-secondary { background-color: transparent; border: 2px solid var(--white); color: var(--white); margin-left: 15px; }
         .btn-secondary:hover { background-color: var(--white); color: var(--dark); }
+
+        /* ABOUT */
         .about { padding: 80px 20px; text-align: center; }
         .about h2 { font-size: 36px; margin-bottom: 20px; color: var(--primary-green); }
         .about p { max-width: 800px; margin: 0 auto 30px; font-size: 18px; }
@@ -41,88 +104,1265 @@
         .feature { padding: 30px; background: var(--white); border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
         .feature-icon { font-size: 48px; margin-bottom: 15px; }
         .feature h3 { font-size: 22px; margin-bottom: 10px; color: var(--primary-red); }
+
+        /* FULL MENU */
         .full-menu { background-color: var(--white); padding: 80px 20px; }
         .full-menu h2 { text-align: center; font-size: 36px; margin-bottom: 20px; color: var(--primary-green); }
-        .menu-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; padding: 20px; background: var(--cream); border-radius: 10px; }
-        .menu-nav a { padding: 8px 16px; background: var(--white); border-radius: 20px; font-size: 14px; border: 1px solid #ddd; }
-        .menu-nav a:hover { background: var(--primary-red); color: var(--white); }
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1400px; margin: 0 auto; }
-        .menu-category { background: var(--cream); padding: 25px; border-radius: 10px; border-left: 4px solid var(--primary-red); }
+        .full-menu > .container > p { text-align: center; margin-bottom: 40px; font-size: 18px; }
+
+        .menu-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: var(--cream);
+            border-radius: 10px;
+        }
+        .menu-nav a {
+            padding: 8px 16px;
+            background: var(--white);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #ddd;
+            transition: all 0.3s;
+        }
+        .menu-nav a:hover { background: var(--primary-red); color: var(--white); border-color: var(--primary-red); }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .menu-category {
+            background: var(--cream);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-red);
+        }
         .menu-category h3 { font-size: 22px; margin-bottom: 15px; color: var(--primary-red); padding-bottom: 10px; border-bottom: 2px solid var(--primary-red); }
-        .menu-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #ddd; }
+        .menu-item { padding: 10px 0; border-bottom: 1px dashed #ddd; }
         .menu-item:last-child { border-bottom: none; }
-        .menu-item-name { font-weight: 500; flex: 1; }
-        .menu-item-desc { font-size: 13px; color: #666; font-style: italic; }
-        .menu-item-price { color: var(--primary-green); font-weight: 600; margin-left: 10px; }
+        .menu-item-header { display: flex; justify-content: space-between; align-items: flex-start; }
+        .menu-item-name { font-weight: 600; flex: 1; color: var(--dark); }
+        .menu-item-name .new-tag { background: var(--primary-red); color: white; font-size: 10px; padding: 2px 6px; border-radius: 3px; margin-right: 5px; }
+        .menu-item-name .favorite { color: var(--gold); margin-left: 5px; }
+        .menu-item-desc { font-size: 13px; color: #666; font-style: italic; margin-top: 4px; line-height: 1.4; }
+        .menu-item-price { color: var(--primary-green); font-weight: 600; margin-left: 10px; white-space: nowrap; }
+        .menu-note { font-size: 12px; color: #888; font-style: italic; margin-top: 15px; padding-top: 10px; border-top: 1px solid #ddd; }
+
+        /* PIZZA TABLE */
+        .pizza-table { width: 100%; margin: 15px 0; font-size: 13px; border-collapse: collapse; }
+        .pizza-table th, .pizza-table td { padding: 8px 5px; text-align: center; border-bottom: 1px solid #ddd; }
+        .pizza-table th { background: var(--primary-red); color: white; font-weight: 600; }
+        .pizza-table td:first-child { text-align: left; font-weight: 500; }
+
         .menu-cta { text-align: center; margin-top: 40px; padding: 30px; background: var(--cream); border-radius: 10px; }
-        .specials { background: linear-gradient(135deg, var(--primary-green), #2d8a2d); color: var(--white); padding: 60px 20px; text-align: center; }
+
+        /* SPECIALS */
+        .specials {
+            background: linear-gradient(135deg, var(--primary-green), #2d8a2d);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+        }
         .specials h2 { font-size: 32px; margin-bottom: 15px; }
         .specials p { font-size: 20px; margin-bottom: 25px; }
+
+        /* INFO SECTION */
         .info-section { padding: 80px 20px; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
-        .info-card { background: var(--white); padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); text-align: center; }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .info-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
         .info-card h3 { font-size: 26px; margin-bottom: 25px; color: var(--primary-green); }
         .hours-list { list-style: none; }
         .hours-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
+        .hours-list li:last-child { border-bottom: none; }
         .address { font-size: 18px; line-height: 1.8; }
         .address a { display: inline-block; margin-top: 15px; font-weight: 600; }
         .contact-info p { font-size: 18px; margin-bottom: 15px; }
+        .contact-info a { font-weight: 600; }
+
+        /* MAP */
         .map-section { height: 400px; background: #ddd; }
         .map-section iframe { width: 100%; height: 100%; border: none; }
+
+        /* FOOTER */
         footer { background-color: var(--dark); color: var(--white); padding: 50px 20px 30px; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto 40px; }
-        .footer-section h4 { font-size: 20px; margin-bottom: 20px; }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+        .footer-section h4 { font-size: 20px; margin-bottom: 20px; color: var(--white); }
         .footer-section p, .footer-section a { color: #ccc; margin-bottom: 10px; display: block; }
+        .footer-section a:hover { color: var(--primary-red); }
+        .social-links { display: flex; gap: 15px; margin-top: 15px; }
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+        .social-links a:hover { background: var(--primary-red); color: var(--white); }
         .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: #888; font-size: 14px; }
+
+        /* MOBILE */
         @media (max-width: 768px) {
+            .header-content { flex-wrap: wrap; }
             .menu-toggle { display: block; }
             nav { display: none; width: 100%; flex-direction: column; gap: 15px; padding: 20px 0; text-align: center; }
             nav.active { display: flex; }
             .phone-header { display: none; }
             .hero h1 { font-size: 32px; }
+            .hero p { font-size: 18px; }
             .btn { display: block; margin: 10px auto; max-width: 280px; }
             .btn-secondary { margin-left: 0; }
+            .about h2, .full-menu h2 { font-size: 28px; }
             .menu-grid { grid-template-columns: 1fr; }
+            .pizza-table { font-size: 11px; }
         }
     </style>
 </head>
 <body>
-    <div class="top-bar"><div class="container">Freeport's Premier Italian Restaurant & Pizzeria • Family Owned Since 1977 • <a href="tel:815-235-8700">(815) 235-8700</a></div></div>
-    <header><div class="header-content"><div class="logo">Cimino's <span>Little Italy</span></div><button class="menu-toggle" onclick="toggleMenu()">☰</button><nav id="nav-menu"><a href="#home">Home</a><a href="#about">About</a><a href="#menu">Menu</a><a href="#hours">Hours</a><a href="#contact">Contact</a></nav><a href="tel:815-235-8700" class="phone-header">(815) 235-8700</a></div></header>
-    <section class="hero" id="home"><div class="container"><h1>Authentic Italian Cuisine</h1><p>Pizza, Pasta, and More Italian Favorites</p><a href="https://www.doordash.com/store/cimino's-little-itay-freeport-1278365/" class="btn btn-primary" target="_blank">Order on DoorDash</a><a href="#menu" class="btn btn-secondary">View Menu</a></div></section>
-    <section class="about" id="about"><div class="container"><h2>Welcome to Cimino's Little Italy</h2><p>If you're in the mood for authentic, hand-crafted Italian cuisine with age-old recipes passed down through the generations, you've come to the right place.</p><div class="features"><div class="feature"><div class="feature-icon">🍕</div><h3>Fresh Made Pizza</h3><p>Hand-tossed dough, homemade sauce, and premium toppings.</p></div><div class="feature"><div class="feature-icon">👨‍👩‍👧‍👦</div><h3>Family Owned</h3><p>Serving Freeport with love since 1977.</p></div><div class="feature"><div class="feature-icon">🚗</div><h3>Dine-In, Takeout & Delivery</h3><p>Enjoy our food however is most convenient.</p></div></div></div></section>
-    <section class="full-menu" id="menu"><div class="container"><h2>Our Full Menu</h2><p style="text-align:center;margin-bottom:40px;">Authentic Italian favorites made fresh daily.</p>
-            <div class="menu-nav"><a href="#pizzas">Pizzas</a><a href="#pasta">Pasta</a><a href="#appetizers">Appetizers</a><a href="#chicken">Chicken</a><a href="#seafood">Seafood</a><a href="#steak">Steak</a><a href="#sandwiches">Sandwiches</a><a href="#burgers">Burgers</a><a href="#calzones">Calzones</a><a href="#salads">Salads</a><a href="#sides">Sides</a><a href="#desserts">Desserts</a></div>
-            <div class="menu-grid">
-                <div class="menu-category" id="pizzas"><h3>🍕 Classic Pizzas</h3><div class="menu-item"><span class="menu-item-name">10" Pizza (Small)</span><span class="menu-item-price">$10.99</span></div><div class="menu-item"><span class="menu-item-name">12" Pizza (Medium)</span><span class="menu-item-price">$11.99</span></div><div class="menu-item"><span class="menu-item-name">14" Pizza (Large)</span><span class="menu-item-price">$12.99</span></div><div class="menu-item"><span class="menu-item-name">16" Pizza (X-Large)</span><span class="menu-item-price">$14.99</span></div></div>
-                <div class="menu-category"><h3>🍕 Gourmet Pizzas</h3><div class="menu-item"><span class="menu-item-name">Specialty Gourmet</span><span class="menu-item-price">$16.99+</span></div><div class="menu-item"><span class="menu-item-name">BBQ Chicken Pizza</span><span class="menu-item-price">$17.99</span></div><div class="menu-item"><span class="menu-item-name">Meat Lovers Pizza</span><span class="menu-item-price">$18.99</span></div><div class="menu-item"><span class="menu-item-name">Veggie Supreme</span><span class="menu-item-price">$17.99</span></div></div>
-                <div class="menu-category" id="pasta"><h3>🍝 Pastabilities</h3><div class="menu-item"><span class="menu-item-name">Fettuccine Alfredo</span><span class="menu-item-price">$17.99</span></div><div class="menu-item"><span class="menu-item-name">Cimino Lasagna</span><span class="menu-item-price">$16.99</span></div><div class="menu-item"><span class="menu-item-name">Baked Mostaccioli</span><span class="menu-item-price">$15.99</span></div><div class="menu-item"><span class="menu-item-name">Chicken Parmigiana</span><span class="menu-item-price">$18.99</span></div><div class="menu-item"><span class="menu-item-name">Spaghetti & Meatballs</span><span class="menu-item-price">$15.99</span></div></div>
-                <div class="menu-category" id="appetizers"><h3>🍗 Things To Share</h3><div class="menu-item"><span class="menu-item-name">Bone In Wings (10pc)</span><span class="menu-item-price">$13.99</span></div><div class="menu-item"><span class="menu-item-name">Boneless Wings (10pc)</span><span class="menu-item-price">$11.99</span></div><div class="menu-item"><span class="menu-item-name">Pizza Cheese Sticks</span><span class="menu-item-price">$11.99</span></div><div class="menu-item"><span class="menu-item-name">Spinach & Artichoke Dip</span><span class="menu-item-price">$11.99</span></div><div class="menu-item"><span class="menu-item-name">Parmesan Beer Nuggets</span><span class="menu-item-price">$12.99</span></div><div class="menu-item"><span class="menu-item-name">Combo Platter</span><span class="menu-item-price">$15.99</span></div></div>
-                <div class="menu-category" id="chicken"><h3>🍗 Mama's Chicken</h3><div class="menu-item"><span class="menu-item-name">6pc Chicken George</span><span class="menu-item-price">$13.99</span></div><div class="menu-item"><span class="menu-item-name">12pc Chicken George</span><span class="menu-item-price">$22.99</span></div><div class="menu-item"><span class="menu-item-name">24pc Chicken George</span><span class="menu-item-price">$35.99</span></div><div class="menu-item"><span class="menu-item-name">Mama's Fried Chicken (4pc)</span><span class="menu-item-price">$14.99</span></div><div class="menu-item"><span class="menu-item-name">Mama's Fried Chicken (8pc)</span><span class="menu-item-price">$22.99</span></div></div>
-                <div class="menu-category" id="seafood"><h3>🦐 Seafood</h3><div class="menu-item"><span class="menu-item-name">Gulf Shrimp</span><span class="menu-item-price">$19.99</span></div><div class="menu-item"><span class="menu-item-name">Fish & Chips</span><span class="menu-item-price">$17.99</span></div><div class="menu-item"><span class="menu-item-name">Cod Dinner</span><span class="menu-item-price">$18.99</span></div><div class="menu-item"><span class="menu-item-name">Salmon</span><span class="menu-item-price">$20.99</span></div></div>
-                <div class="menu-category" id="steak"><h3>🥩 Steak</h3><div class="menu-item"><span class="menu-item-name">Ribeye Steak</span><span class="menu-item-price">$24.99</span></div><div class="menu-item"><span class="menu-item-name">NY Strip</span><span class="menu-item-price">$22.99</span></div><div class="menu-item"><span class="menu-item-name">Sirloin Steak</span><span class="menu-item-price">$19.99</span></div></div>
-                <div class="menu-category" id="sandwiches"><h3>🥪 Sandwiches</h3><div class="menu-item"><span class="menu-item-name">Italian Beef</span><span class="menu-item-price">$12.99</span></div><div class="menu-item"><span class="menu-item-name">Meatball Sub</span><span class="menu-item-price">$11.99</span></div><div class="menu-item"><span class="menu-item-name">Chicken Parmesan Sub</span><span class="menu-item-price">$12.99</span></div><div class="menu-item"><span class="menu-item-name">Philly Cheesesteak</span><span class="menu-item-price">$13.99</span></div></div>
-                <div class="menu-category" id="burgers"><h3>🍔 Burgers</h3><div class="menu-item"><span class="menu-item-name">Classic Burger</span><span class="menu-item-price">$11.99</span></div><div class="menu-item"><span class="menu-item-name">Bacon Cheeseburger</span><span class="menu-item-price">$13.99</span></div><div class="menu-item"><span class="menu-item-name">BBQ Burger</span><span class="menu-item-price">$12.99</span></div><div class="menu-item"><span class="menu-item-name">Mushroom Swiss</span><span class="menu-item-price">$13.99</span></div></div>
-                <div class="menu-category" id="calzones"><h3>🥟 Calzones</h3><div class="menu-item"><span class="menu-item-name">Cheese Calzone</span><span class="menu-item-price">$12.99</span></div><div class="menu-item"><span class="menu-item-name">Pepperoni Calzone</span><span class="menu-item-price">$13.99</span></div><div class="menu-item"><span class="menu-item-name">Meat Lovers Calzone</span><span class="menu-item-price">$15.99</span></div><div class="menu-item"><span class="menu-item-name">Veggie Calzone</span><span class="menu-item-price">$14.99</span></div></div>
-                <div class="menu-category" id="salads"><h3>🥗 Salads</h3><div class="menu-item"><span class="menu-item-name">House Salad</span><span class="menu-item-price">$7.99</span></div><div class="menu-item"><span class="menu-item-name">Caesar Salad</span><span class="menu-item-price">$9.99</span></div><div class="menu-item"><span class="menu-item-name">Grilled Chicken Salad</span><span class="menu-item-price">$13.99</span></div><div class="menu-item"><span class="menu-item-name">Antipasto Salad</span><span class="menu-item-price">$14.99</span></div></div>
-                <div class="menu-category" id="sides"><h3>🍟 Sides</h3><div class="menu-item"><span class="menu-item-name">Mac & Cheese</span><span class="menu-item-price">$6.00</span></div><div class="menu-item"><span class="menu-item-name">French Fries</span><span class="menu-item-price">$4.99</span></div><div class="menu-item"><span class="menu-item-name">Onion Rings</span><span class="menu-item-price">$5.99</span></div><div class="menu-item"><span class="menu-item-name">Garlic Bread</span><span class="menu-item-price">$4.99</span></div></div>
-                <div class="menu-category" id="desserts"><h3>🍰 Desserts</h3><div class="menu-item"><span class="menu-item-name">Tiramisu</span><span class="menu-item-price">$7.99</span></div><div class="menu-item"><span class="menu-item-name">Cannoli</span><span class="menu-item-price">$5.99</span></div><div class="menu-item"><span class="menu-item-name">Cheesecake</span><span class="menu-item-price">$6.99</span></div><div class="menu-item"><span class="menu-item-name">Lemon Ice</span><span class="menu-item-price">$4.99</span></div></div>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            Freeport's Premier Italian Restaurant & Pizzeria • Family Owned Since 1977 •
+            <a href="tel:815-235-8700">(815) 235-8700</a>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <div class="logo">Cimino's <span>Little Italy</span></div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <nav id="nav-menu">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#menu">Menu</a>
+                <a href="#catering">Catering</a>
+                <a href="#hours">Hours</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="tel:815-235-8700" class="phone-header">(815) 235-8700</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Authentic Italian Cuisine</h1>
+            <p>Pizza, Pasta, and More Italian Favorites Since 1977</p>
+            <a href="https://www.doordash.com/store/cimino's-little-itay-freeport-1278365/" class="btn btn-primary" target="_blank">Order on DoorDash</a>
+            <a href="#menu" class="btn btn-secondary">View Menu</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Welcome to Cimino's Little Italy</h2>
+            <p>
+                If you're in the mood for authentic, hand-crafted Italian cuisine with age-old recipes
+                passed down through the generations, you've come to the right place. Cimino's Little Italy
+                is your source for unbelievable flavors in Freeport, IL.
+            </p>
+            <p>
+                Visit us any day of the week for dine-in or takeout, or give us a call to place a delivery order.
+            </p>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🍕</div>
+                    <h3>Fresh Made Pizza</h3>
+                    <p>Hand-tossed dough, homemade sauce, and premium toppings on every pie.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Family Owned</h3>
+                    <p>Serving Freeport with love and authentic recipes since 1977.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🚗</div>
+                    <h3>Dine-In, Takeout & Delivery</h3>
+                    <p>Enjoy our food however is most convenient for you.</p>
+                </div>
             </div>
-            <div class="menu-cta"><p style="margin-bottom:20px;font-size:18px;"><strong>Order Online or Call Us!</strong></p><a href="https://www.doordash.com/store/cimino's-little-itay-freeport-1278365/" class="btn btn-primary" target="_blank">Order on DoorDash</a><a href="tel:815-235-8700" class="btn btn-secondary" style="color:var(--dark);border-color:var(--dark);">Call (815) 235-8700</a></div>
-        </div></section>
-    <section class="specials"><div class="container"><h2>🐟 Fish Friday Special!</h2><p>3 Piece Cod Special - Fried or Grilled - $12.99</p><a href="tel:815-235-8700" class="btn btn-primary">Order Now</a></div></section>
-    <section class="info-section" id="hours"><div class="info-grid">
-        <div class="info-card"><h3>⏰ Hours</h3><ul class="hours-list"><li><span>Monday - Thursday</span><span>11:00 AM - 10:00 PM</span></li><li><span>Friday - Saturday</span><span>11:00 AM - 12:00 AM</span></li><li><span>Sunday</span><span>11:00 AM - 9:00 PM</span></li></ul></div>
-        <div class="info-card"><h3>📍 Location</h3><div class="address"><p>421 Challenge St</p><p>Freeport, IL 61032</p><a href="https://maps.google.com/?q=421+Challenge+St+Freeport+IL+61032" target="_blank">Get Directions →</a></div></div>
-        <div class="info-card" id="contact"><h3>📞 Contact Us</h3><div class="contact-info"><p>Phone: <a href="tel:815-235-8700">(815) 235-8700</a></p><p>Email: <a href="mailto:ciminosalvo@yahoo.com">ciminosalvo@yahoo.com</a></p></div></div>
-    </div></section>
-    <section class="map-section"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2954.5!2d-89.6212!3d42.2967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s421%20Challenge%20St%2C%20Freeport%2C%20IL%2061032!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy"></iframe></section>
-    <footer><div class="footer-content">
-        <div class="footer-section"><h4>Cimino's Little Italy</h4><p>Freeport's Premier Italian Restaurant</p><p>Family Owned Since 1977</p></div>
-        <div class="footer-section"><h4>Quick Links</h4><a href="#home">Home</a><a href="#about">About Us</a><a href="#menu">Menu</a><a href="#contact">Contact</a></div>
-        <div class="footer-section"><h4>Contact</h4><p>421 Challenge St</p><p>Freeport, IL 61032</p><a href="tel:815-235-8700">(815) 235-8700</a></div>
-        <div class="footer-section"><h4>Services</h4><p>Dine-In</p><p>Takeout</p><p>Delivery</p><p>Catering</p></div>
-    </div><div class="footer-bottom"><p>© 2026 Cimino's Little Italy. All rights reserved.</p></div></footer>
-    <script>function toggleMenu(){document.getElementById('nav-menu').classList.toggle('active');}</script>
+        </div>
+    </section>
+
+    <!-- FULL MENU -->
+    <section class="full-menu" id="menu">
+        <div class="container">
+            <h2>Our Full Menu</h2>
+            <p>Authentic Italian favorites made fresh daily. *Parties of 8 or more will add a 20% gratuity.</p>
+
+            <!-- MENU NAVIGATION -->
+            <div class="menu-nav">
+                <a href="#starters">Starters</a>
+                <a href="#salads">Salads</a>
+                <a href="#pizzas">Build Your Own Pizza</a>
+                <a href="#gourmet">Gourmet Pizzas</a>
+                <a href="#calzones">Calzones</a>
+                <a href="#pasta">Pastabilities</a>
+                <a href="#chicken">Mama's Chicken</a>
+                <a href="#steak">Steak</a>
+                <a href="#seafood">Seafood</a>
+                <a href="#sandwiches">Sandwiches</a>
+                <a href="#burgers">Burgers</a>
+                <a href="#sides">Sides</a>
+                <a href="#desserts">Desserts</a>
+                <a href="#catering" style="background: var(--primary-green); color: white; border-color: var(--primary-green);">Catering & Events</a>
+            </div>
+
+            <div class="menu-grid">
+
+                <!-- STARTERS -->
+                <div class="menu-category" id="starters">
+                    <h3>🍗 Starters</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Bone In Wings (10 piece)</span>
+                            <span class="menu-item-price">$12.99</span>
+                        </div>
+                        <p class="menu-item-desc">Sauces: Garlic Parmesan, Hot, Mild, BBQ, Honey BBQ, Honey Hot, Mango Habanero, Sweet Chili</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Boneless Wings (10 piece)</span>
+                            <span class="menu-item-price">$10.99</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name"><span class="new-tag">NEW</span>Burrata Bruschetta</span>
+                            <span class="menu-item-price">$12.99</span>
+                        </div>
+                        <p class="menu-item-desc">Tomato, fresh burrata, basil, and pesto drizzled with honey and balsamic glaze on toasted crostini</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Shrimp Cocktail</span>
+                            <span class="menu-item-price">$11.99</span>
+                        </div>
+                        <p class="menu-item-desc">8 jumbo shrimp served with lemon wedge and cocktail sauce</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Spinach & Artichoke Dip<span class="favorite">★</span></span>
+                            <span class="menu-item-price">$10.99</span>
+                        </div>
+                        <p class="menu-item-desc">Fresh spinach, artichoke hearts, cream cheese and Cimino cheese. Served with chips and toasted bread</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Pizza Cheese Sticks</span>
+                            <span class="menu-item-price">$10.99</span>
+                        </div>
+                        <p class="menu-item-desc">12 inch pizza dough baked with garlic, cheese and sprinkled with Cimino spices. Served with marinara</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Pizza Rolls</span>
+                            <span class="menu-item-price">$9.99</span>
+                        </div>
+                        <p class="menu-item-desc">Pizza crust topped with olive oil and Cimino cheese, rolled, baked and served with marinara. Choice of pepperoni or sausage</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Mama's Meatballs</span>
+                            <span class="menu-item-price">$10.99</span>
+                        </div>
+                        <p class="menu-item-desc">Tender meatballs served with a trio of sauces - creamy Alfredo, vibrant pesto, and rich marinara. Topped with melted mozzarella</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Parmesan Beer Nuggets<span class="favorite">★</span></span>
+                            <span class="menu-item-price">$11.99</span>
+                        </div>
+                        <p class="menu-item-desc">Fresh fried pizza dough tossed in butter and parmesan cheese, served with marinara sauce</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Crab Stuffed Mushrooms<span class="favorite">★</span></span>
+                            <span class="menu-item-price">$13.99</span>
+                        </div>
+                        <p class="menu-item-desc">Fresh mushrooms stuffed with succulent crab, fresh herbs and mozzarella cheese</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Mozzarella Sticks (8 piece)</span>
+                            <span class="menu-item-price">$9.99</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Bosco Sticks (5 piece)</span>
+                            <span class="menu-item-price">$10.99</span>
+                        </div>
+                        <p class="menu-item-desc">Italian breadsticks stuffed with warm mozzarella cheese</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Breaded Mushrooms<span class="favorite">★</span></span>
+                            <span class="menu-item-price">$10.99</span>
+                        </div>
+                        <p class="menu-item-desc">Tender, light breaded mushrooms fried and served with Sam's sauce</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Fried Pickles<span class="favorite">★</span></span>
+                            <span class="menu-item-price">$9.99</span>
+                        </div>
+                        <p class="menu-item-desc">Hand breaded pickle spears served with Sam's sauce</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Onion Rings</span>
+                            <span class="menu-item-price">$9.99</span>
+                        </div>
+                        <p class="menu-item-desc">Beer battered onion rings served with your choice of side</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Garlic Bread</span>
+                            <span class="menu-item-price">$4.00</span>
+                        </div>
+                        <p class="menu-item-desc">Add cheese $4.99</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Combo Platter</span>
+                            <span class="menu-item-price">$14.99</span>
+                        </div>
+                        <p class="menu-item-desc">Mozzarella sticks, Chicken George, fried pickles, onion rings and fried mushroom. Served with Sam's sauce, Mama's sauce, and Marinara</p>
+                    </div>
+                    <p class="menu-note">Dipping Sauces: Sam Sauce, Mama's Sauce, Ranch, Blue Cheese</p>
+                </div>
+
+                <!-- SALADS -->
+                <div class="menu-category" id="salads">
+                    <h3>🥗 Salads</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Caesar Salad</span>
+                            <span class="menu-item-price">$9.99 / Side $4.99</span>
+                        </div>
+                        <p class="menu-item-desc">Romaine lettuce with chunky croutons, parmesan cheese and our classic Caesar dressing. Add grilled or blackened chicken +$4.00, Add salmon +$5.00</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Caprese Salad</span>
+                            <span class="menu-item-price">$10.99</span>
+                        </div>
+                        <p class="menu-item-desc">Sliced fresh mozzarella, pesto, tomatoes, and sweet basil, seasoned with olive oil and balsamic glaze</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name"><span class="new-tag">NEW</span>Greek Salad</span>
+                            <span class="menu-item-price">$11.99</span>
+                        </div>
+                        <p class="menu-item-desc">Crisp greens, feta cheese, cucumbers, black olives, tomato, banana pepper, green pepper, onions, and Greek feta dressing. Add Chicken $4.00, Add Steak $6.00</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Mama Cimino's Salad<span class="favorite">★</span></span>
+                            <span class="menu-item-price">$12.99</span>
+                        </div>
+                        <p class="menu-item-desc">Crisp blend of garden greens, grilled chicken, bacon, avocados, diced tomatoes, chopped egg, Cimino cheese and your choice of dressing</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Ciminos Large House Salad</span>
+                            <span class="menu-item-price">$9.99 / Side $4.99</span>
+                        </div>
+                        <p class="menu-item-desc">Greens topped with olives, pepperoncini, tomatoes, hardboiled egg, pepperoni, and croutons with your choice of dressing. Add grilled or blackened chicken +$4.00</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Soup of the Day</span>
+                            <span class="menu-item-price">Cup $3.99 / Bowl $4.99</span>
+                        </div>
+                        <p class="menu-item-desc">Ask your server for our soup of the day</p>
+                    </div>
+                    <p class="menu-note">Dressings: House Italian, French, Ranch, Caesar, Bleu Cheese, Balsamic Vinaigrette</p>
+                </div>
+
+                <!-- BUILD YOUR OWN PIZZA -->
+                <div class="menu-category" id="pizzas">
+                    <h3>🍕 Build Your Own Pizza</h3>
+                    <table class="pizza-table">
+                        <tr>
+                            <th>Crust Style</th>
+                            <th>10"</th>
+                            <th>12"</th>
+                            <th>14"</th>
+                            <th>16"</th>
+                            <th>24"</th>
+                        </tr>
+                        <tr>
+                            <td>Extra Thin</td>
+                            <td>$9.99</td>
+                            <td>$10.99</td>
+                            <td>$11.99</td>
+                            <td>$12.99</td>
+                            <td>$32.99</td>
+                        </tr>
+                        <tr>
+                            <td>Cimino's Classic</td>
+                            <td>$9.99</td>
+                            <td>$10.99</td>
+                            <td>$11.99</td>
+                            <td>$12.99</td>
+                            <td>$32.99</td>
+                        </tr>
+                        <tr>
+                            <td>Hand Tossed</td>
+                            <td>$9.99</td>
+                            <td>$10.99</td>
+                            <td>$11.99</td>
+                            <td>$12.99</td>
+                            <td>$32.99</td>
+                        </tr>
+                        <tr>
+                            <td>Chicago Deep</td>
+                            <td>N/A</td>
+                            <td>$14.99</td>
+                            <td>$17.99</td>
+                            <td>$19.99</td>
+                            <td>$42.99</td>
+                        </tr>
+                        <tr>
+                            <td>Chicago Stuffed</td>
+                            <td>N/A</td>
+                            <td>$14.99</td>
+                            <td>$17.99</td>
+                            <td>$19.99</td>
+                            <td>$42.99</td>
+                        </tr>
+                        <tr>
+                            <td>Pan</td>
+                            <td>N/A</td>
+                            <td>$14.99</td>
+                            <td>$17.99</td>
+                            <td>$19.99</td>
+                            <td>$42.99</td>
+                        </tr>
+                    </table>
+                    <p class="menu-item-desc" style="text-align: center; margin-top: 10px;"><strong>Additional Toppings:</strong> 10" $1.25 | 12" $1.75 | 14" $2.00 | 16" $2.50 | 24" $5.00</p>
+                    <p class="menu-item-desc" style="text-align: center;">Toppings: Pepperoni, Sausage, Ground Beef, Bacon, Canadian Bacon, Onion, Mushroom, Green Pepper, Tomato, Black Olive, Green Olive, Artichokes, Spinach, Pineapple, Anchovies</p>
+                    <p class="menu-note">10" Gluten-Free Pizza Crusts Available +$3.00</p>
+                </div>
+
+                <!-- GOURMET PIZZAS -->
+                <div class="menu-category" id="gourmet">
+                    <h3>🍕 Gourmet Pizzas</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Cimino Deluxe<span class="favorite">★</span></span>
+                        </div>
+                        <p class="menu-item-desc">Loaded with everything: black olives, mushrooms, onions, pepperoni, sausage, green olives, green peppers, bacon and Canadian bacon</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Philly Cheese Steak</span>
+                        </div>
+                        <p class="menu-item-desc">Philly steak, green peppers, onions and white American, mozzarella and cheddar cheeses</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Taco</span>
+                        </div>
+                        <p class="menu-item-desc">Refried beans, salsa, taco meat, mozzarella and cheddar cheese, baked and topped with tomatoes, onions, black olives, nacho chips. Served with sour cream and taco sauce</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Meaty Amore</span>
+                        </div>
+                        <p class="menu-item-desc">All meat pizza. Ham, bacon, pepperoni and Italian sausage</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Chicken Alfredo</span>
+                        </div>
+                        <p class="menu-item-desc">Alfredo sauce, chicken, mozzarella and cheddar cheese</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">BBQ Chicken</span>
+                        </div>
+                        <p class="menu-item-desc">BBQ sauce, grilled chicken, bacon, shredded cheddar and mozzarella cheese</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Bacon Cheeseburger</span>
+                        </div>
+                        <p class="menu-item-desc">Traditional pizza sauce topped with ground beef, tomato, onion, bacon and American and mozzarella cheese</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Greek</span>
+                        </div>
+                        <p class="menu-item-desc">Sausage, pepperoni, green peppers, onions, black olives, tomatoes, feta and mozzarella cheese</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Veggie</span>
+                        </div>
+                        <p class="menu-item-desc">Tomatoes, mushrooms, green peppers, onions, black and green olives</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Pete's Special<span class="favorite">★</span></span>
+                        </div>
+                        <p class="menu-item-desc">Sausage, pepperoni, meatballs, olive oil, fresh garlic, mozzarella and ricotta cheese</p>
+                    </div>
+                    <table class="pizza-table">
+                        <tr>
+                            <th>Gourmet Pizzas</th>
+                            <th>10"</th>
+                            <th>12"</th>
+                            <th>14"</th>
+                            <th>16"</th>
+                            <th>24"</th>
+                        </tr>
+                        <tr>
+                            <td>Extra Thin</td>
+                            <td>$15.99</td>
+                            <td>$17.99</td>
+                            <td>$19.99</td>
+                            <td>$21.99</td>
+                            <td>$44.99</td>
+                        </tr>
+                        <tr>
+                            <td>Classic/Hand Tossed</td>
+                            <td>$15.99</td>
+                            <td>$17.99</td>
+                            <td>$19.99</td>
+                            <td>$21.99</td>
+                            <td>$44.99</td>
+                        </tr>
+                        <tr>
+                            <td>Pan/Deep/Stuffed</td>
+                            <td>N/A</td>
+                            <td>$20.99</td>
+                            <td>$23.99</td>
+                            <td>$26.99</td>
+                            <td>$54.99</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- CALZONES -->
+                <div class="menu-category" id="calzones">
+                    <h3>🥟 Calzones</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Stromboli<span class="favorite">★</span></span>
+                            <span class="menu-item-price">$12.99</span>
+                        </div>
+                        <p class="menu-item-desc">Italian sausage, pepperoni, parmesan cheese, mozzarella and giardiniera peppers in a flaky crust. Served with a side of marinara and Sam's sauce</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Calzone</span>
+                            <span class="menu-item-price">$12.99</span>
+                        </div>
+                        <p class="menu-item-desc">A flaky baked pizza pocket filled with your choice of three toppings, then topped with butter and parmesan cheese. Served with a side of marinara. Additional toppings $1.00 each</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Specialty Calzone</span>
+                            <span class="menu-item-price">$15.99</span>
+                        </div>
+                        <p class="menu-item-desc">Choose your favorite specialty pizza from our gourmet pizza section. Served with a side of marinara</p>
+                    </div>
+                </div>
+
+                <!-- PASTABILITIES -->
+                <div class="menu-category" id="pasta">
+                    <h3>🍝 Pastabilities</h3>
+                    <p class="menu-item-desc" style="margin-bottom: 15px;">Accompanied with a house salad or soup and Cimino's garlic bread. Gluten Free penne available +$4</p>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Our Famous Tortellini A La Panna<span class="favorite">★</span></span>
+                            <span class="menu-item-price">$18.99</span>
+                        </div>
+                        <p class="menu-item-desc">Cheese tortellini, ham, and fresh mushrooms topped with your choice of marinara or Alfredo sauce, sprinkled with parmesan cheese</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Russ Gennusa's Favorite<span class="favorite">★</span></span>
+                            <span class="menu-item-price">$15.99</span>
+                        </div>
+                        <p class="menu-item-desc">Ziti, fresh garlic, olive oil, parmesan cheese, tomato, black olive and artichoke hearts sautéed in butter</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Fettuccine Alfredo</span>
+                            <span class="menu-item-price">$16.99</span>
+                        </div>
+                        <p class="menu-item-desc">Fettuccine pasta tossed with our homemade rich Alfredo sauce and fresh parmesan cheese</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Fettuccine Alfredo with Chicken, Broccoli & Mushrooms</span>
+                            <span class="menu-item-price">$20.99</span>
+                        </div>
+                        <p class="menu-item-desc">Tender pasta tossed in our Alfredo sauce along with chicken, fresh broccoli and fresh mushrooms</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Baked Macaroni & Cheese with Bacon</span>
+                            <span class="menu-item-price">$15.99</span>
+                        </div>
+                        <p class="menu-item-desc">Creamy cheese sauce mixed with cavatappi pasta, bacon, and cheese, baked to perfection</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Cimino Lasagna</span>
+                            <span class="menu-item-price">$15.99</span>
+                        </div>
+                        <p class="menu-item-desc">Layers of pasta, bolognese meat sauce, ricotta and mozzarella cheese stacked then baked 'til golden brown</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Baked Mostaccioli</span>
+                            <span class="menu-item-price">$14.99</span>
+                        </div>
+                        <p class="menu-item-desc">Plenty of pasta topped with marinara sauce and Cimino cheese blend then baked golden</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Chicken Parmigiana<span class="favorite">★</span></span>
+                            <span class="menu-item-price">$16.99</span>
+                        </div>
+                        <p class="menu-item-desc">A breast of chicken coated lightly in a crumb breading, topped with marinara sauce and Cimino cheese. Served on a bed of pasta</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name"><span class="new-tag">NEW</span>Cajun Alfredo</span>
+                            <span class="menu-item-price">$19.99</span>
+                        </div>
+                        <p class="menu-item-desc">Experience the bold flavors of our Cajun fettuccine pasta with roasted red peppers and featuring your choice of succulent shrimp or tender steak. A perfect blend of spicy Cajun seasoning and light cream sauce</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Chicken Marsala</span>
+                            <span class="menu-item-price">$17.99</span>
+                        </div>
+                        <p class="menu-item-desc">Tender pan-seared chicken breast smothered in a rich and savory Marsala wine sauce. Enhanced with earthy mushrooms and a hint of garlic, served over a bed of spaghetti pasta</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Tortellini</span>
+                            <span class="menu-item-price">$14.99</span>
+                        </div>
+                        <p class="menu-item-desc">Cheese tortellini covered with our homemade marinara sauce</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Spaghetti</span>
+                            <span class="menu-item-price">$12.99</span>
+                        </div>
+                        <p class="menu-item-desc">Served with our homemade marinara sauce</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Mostaccioli</span>
+                            <span class="menu-item-price">$13.99</span>
+                        </div>
+                        <p class="menu-item-desc">Served with our homemade marinara sauce</p>
+                    </div>
+                    <p class="menu-note">Add-ons: Blackened/Grilled Chicken $4 | Shrimp $5 | Meatball $2.50 | Meat Sauce $3 | Fresh Mushrooms $2 | Alfredo/Rosa Sauce $3</p>
+                </div>
+
+                <!-- MAMA'S CHICKEN -->
+                <div class="menu-category" id="chicken">
+                    <h3>🍗 Mama's Chicken</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Mama's Fried Chicken</span>
+                        </div>
+                        <p class="menu-item-desc">Hand breaded and fried crispy golden brown</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">• 4 piece with 1 side</span>
+                            <span class="menu-item-price">$10.99</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">• 12 piece with 2 sides</span>
+                            <span class="menu-item-price">$23.99</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Chicken George<span class="favorite">★</span></span>
+                        </div>
+                        <p class="menu-item-desc">Homemade and hand breaded chicken tenderloins served with Mama's sauce, Sam's sauce, BBQ or Ranch</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">• 6 piece with 1 side</span>
+                            <span class="menu-item-price">$12.99</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">• 12 piece with 2 sides</span>
+                            <span class="menu-item-price">$21.99</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">• 24 piece with 3 sides</span>
+                            <span class="menu-item-price">$34.99</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEAK -->
+                <div class="menu-category" id="steak">
+                    <h3>🥩 Steak</h3>
+                    <p class="menu-item-desc" style="margin-bottom: 15px;">Accompanied with a house salad or soup and Cimino's garlic bread</p>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Ribeye*</span>
+                            <span class="menu-item-price">$32.99</span>
+                        </div>
+                        <p class="menu-item-desc">16 oz Choice ribeye cooked to your liking. Served with your choice of a side</p>
+                    </div>
+                    <p class="menu-note">Customize Your Steak! +$3.00: Sautéed Onions or Mushrooms, Sinatra Style Parmesan Encrusted, Blue Cheese Encrusted</p>
+                </div>
+
+                <!-- SEAFOOD -->
+                <div class="menu-category" id="seafood">
+                    <h3>🦐 Seafood</h3>
+                    <p class="menu-item-desc" style="margin-bottom: 15px;">Accompanied with a house salad or soup and Cimino's garlic bread</p>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Atlantic Salmon*<span class="favorite">★</span></span>
+                            <span class="menu-item-price">$19.99</span>
+                        </div>
+                        <p class="menu-item-desc">Grilled Atlantic salmon served with sautéed spinach and a side of homemade Sam's sauce. Served with your choice of side. Try your salmon honey glazed +$1.00 or blackened +$1.00</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Cod Italiano*</span>
+                            <span class="menu-item-price">$16.99</span>
+                        </div>
+                        <p class="menu-item-desc">Fried or grilled Icelandic cod filet made with Italian herbs and spices. Served with lemon, tartar sauce and your choice of side</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Gulf Shrimp*</span>
+                            <span class="menu-item-price">$18.99</span>
+                        </div>
+                        <p class="menu-item-desc">Your choice of beer battered or grilled. Served with cocktail sauce and your choice of a side</p>
+                    </div>
+                    <p class="menu-note">*Thoroughly cooking foods of animal origin reduces the risk of foodborne illness</p>
+                </div>
+
+                <!-- SANDWICHES -->
+                <div class="menu-category" id="sandwiches">
+                    <h3>🥪 Sandwiches</h3>
+                    <p class="menu-item-desc" style="margin-bottom: 15px;">Served with your choice of fries or coleslaw. Substitute side salad or premium side $3.50. Cheese options: Cheddar, American, Mozzarella, White American and Swiss</p>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Big Bruno Sandwich<span class="favorite">★</span></span>
+                            <span class="menu-item-price">$12.99</span>
+                        </div>
+                        <p class="menu-item-desc">Straight from New York! Italian beef, salami, ham, American cheese, onions, lettuce, tomato, mayo, olive oil, and salt and pepper</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Mike's Philly Cheese Steak</span>
+                            <span class="menu-item-price">$12.99</span>
+                        </div>
+                        <p class="menu-item-desc">Hoagie bun with thin slices of steak, grilled peppers and onions. Topped with philly cheese sauce</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Crispy BBQ Chicken Ranch Sandwich</span>
+                            <span class="menu-item-price">$11.99</span>
+                        </div>
+                        <p class="menu-item-desc">Breaded chicken breast, BBQ sauce, crisp bacon and cheddar cheese served on a butter bun</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Chicken Parmesan Sandwich</span>
+                            <span class="menu-item-price">$12.99</span>
+                        </div>
+                        <p class="menu-item-desc">Crispy chicken breast topped with marinara and Cimino cheese on a buttered bun</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Cimino's Chicken Sandwich</span>
+                            <span class="menu-item-price">$11.99</span>
+                        </div>
+                        <p class="menu-item-desc">Grilled or fried chicken served on bun with side of lettuce, tomato, onion and a pickle spear</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Grilled Chicken Club</span>
+                            <span class="menu-item-price">$11.99</span>
+                        </div>
+                        <p class="menu-item-desc">Grilled chicken breast, bacon, ham, Swiss and American cheeses on a toasted butter bun</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Tony's Italian Beef<span class="favorite">★</span></span>
+                            <span class="menu-item-price">$12.99</span>
+                        </div>
+                        <p class="menu-item-desc">Roasted Italian beef topped with Cimino's cheese and served with a side of giardiniera and au jus for dipping</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Dominic's Meatball Sandwich</span>
+                            <span class="menu-item-price">$11.99</span>
+                        </div>
+                        <p class="menu-item-desc">Italian meatballs, marinara sauce and melted Cimino cheese</p>
+                    </div>
+                </div>
+
+                <!-- BURGERS -->
+                <div class="menu-category" id="burgers">
+                    <h3>🍔 Burgers</h3>
+                    <p class="menu-item-desc" style="margin-bottom: 15px;">Served with your choice of fries or coleslaw. Substitute side salad $3.50. Add Fried Egg +$2.00</p>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Ultimate Stuffed Cheeseburger*</span>
+                            <span class="menu-item-price">$12.99</span>
+                        </div>
+                        <p class="menu-item-desc">Stuffed with lettuce, tomato, onion, bacon, American cheese, pickles, mustard, ketchup and Sam's sauce</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Jalapeño Stuffed Burger*</span>
+                            <span class="menu-item-price">$11.99</span>
+                        </div>
+                        <p class="menu-item-desc">Stuffed with cream cheese, jalapeños and Sam sauce</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Cimino Burger*<span class="favorite">★</span></span>
+                            <span class="menu-item-price">$10.99</span>
+                        </div>
+                        <p class="menu-item-desc">1/2 lb burger topped with lettuce, tomato, onion, and pickle. Served on a toasted bun with American cheese. Make it a Fat Sam (1lb) add $4</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Mushroom Swiss Burger*</span>
+                            <span class="menu-item-price">$11.99</span>
+                        </div>
+                        <p class="menu-item-desc">1/2 lb. Sautéed mushrooms and onions with melted Swiss cheese</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Cowboy Burger*</span>
+                            <span class="menu-item-price">$12.99</span>
+                        </div>
+                        <p class="menu-item-desc">Crispy bacon, cheddar cheese, onion rings, lettuce, tomato and bbq sauce</p>
+                    </div>
+                    <p class="menu-note">Additional Toppings: Egg $2.00 | Bacon $2.00 | Cheese $1.00 | Onion Ring $3.00</p>
+                </div>
+
+                <!-- PREMIUM SIDES -->
+                <div class="menu-category" id="sides">
+                    <h3>🍟 Premium Sides</h3>
+                    <p class="menu-item-desc" style="margin-bottom: 15px; font-weight: bold;">$5.00 each</p>
+                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Asparagus</span></div></div>
+                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mac & Cheese</span></div></div>
+                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Broccoli</span></div></div>
+                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">French Fries</span></div></div>
+                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Onion Rings</span></div></div>
+                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Coleslaw</span></div></div>
+                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mashed Potatoes & Gravy</span></div></div>
+                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Fettuccine Alfredo</span></div></div>
+                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Spaghetti with Marinara</span></div></div>
+                </div>
+
+                <!-- DESSERTS -->
+                <div class="menu-category" id="desserts">
+                    <h3>🍰 Desserts</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Chocolate Cake</span>
+                            <span class="menu-item-price">$7.00</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Tiramisu</span>
+                            <span class="menu-item-price">$7.00</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">New York Cheese Cake</span>
+                            <span class="menu-item-price">$7.00</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Cannoli</span>
+                            <span class="menu-item-price">$6.00</span>
+                        </div>
+                        <p class="menu-item-desc">Add sauce: Chocolate, Caramel, Strawberry, Raspberry $0.50</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Scoop of Ice Cream</span>
+                            <span class="menu-item-price">$3.00</span>
+                        </div>
+                        <p class="menu-item-desc">Flavors: Vanilla, Chocolate, Seasonal Spumoni</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CATERING & EVENTS SECTION -->
+            <div id="catering" style="margin-top: 60px; padding-top: 40px; border-top: 3px solid var(--primary-green);">
+                <h2 style="text-align: center; font-size: 32px; margin-bottom: 10px; color: var(--primary-green);">🎉 Catering & Private Events</h2>
+                <p style="text-align: center; margin-bottom: 40px; font-size: 18px;">Let Cimino's make your special occasion unforgettable!</p>
+
+                <!-- VENUE INFO -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                    <div style="background: linear-gradient(135deg, var(--primary-green), #2d8a2d); color: white; padding: 30px; border-radius: 10px; text-align: center;">
+                        <h3 style="font-size: 26px; margin-bottom: 15px; color: white;">✨ Belle Mia Room</h3>
+                        <p style="font-size: 48px; font-weight: bold; margin-bottom: 10px;">150</p>
+                        <p style="font-size: 18px; margin-bottom: 15px;">Guest Capacity</p>
+                        <p style="font-size: 16px; opacity: 0.9;">1,500 sq ft of elegant event space</p>
+                        <p style="font-size: 14px; margin-top: 15px; opacity: 0.8;">Perfect for large celebrations, weddings, and corporate events</p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, var(--primary-red), #a01830); color: white; padding: 30px; border-radius: 10px; text-align: center;">
+                        <h3 style="font-size: 26px; margin-bottom: 15px; color: white;">🌿 The Atrium</h3>
+                        <p style="font-size: 48px; font-weight: bold; margin-bottom: 10px;">80</p>
+                        <p style="font-size: 18px; margin-bottom: 15px;">Guest Capacity</p>
+                        <p style="font-size: 16px; opacity: 0.9;">840 sq ft glass-enclosed space</p>
+                        <p style="font-size: 14px; margin-top: 15px; opacity: 0.8;">Retractable glass walls • Natural light • Intimate gatherings</p>
+                    </div>
+                </div>
+
+                <!-- EVENTS WE HOST -->
+                <div style="background: var(--cream); padding: 30px; border-radius: 10px; margin-bottom: 40px; text-align: center;">
+                    <h3 style="font-size: 22px; margin-bottom: 20px; color: var(--primary-red);">Events We Host</h3>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                        <span style="background: white; padding: 10px 20px; border-radius: 25px; font-weight: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">💒 Weddings</span>
+                        <span style="background: white; padding: 10px 20px; border-radius: 25px; font-weight: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">🎊 Banquets</span>
+                        <span style="background: white; padding: 10px 20px; border-radius: 25px; font-weight: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">💍 Rehearsal Dinners</span>
+                        <span style="background: white; padding: 10px 20px; border-radius: 25px; font-weight: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">🥂 Receptions</span>
+                        <span style="background: white; padding: 10px 20px; border-radius: 25px; font-weight: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">👶 Baby Showers</span>
+                        <span style="background: white; padding: 10px 20px; border-radius: 25px; font-weight: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">💐 Bridal Showers</span>
+                        <span style="background: white; padding: 10px 20px; border-radius: 25px; font-weight: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">❤️ Anniversaries</span>
+                        <span style="background: white; padding: 10px 20px; border-radius: 25px; font-weight: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">🎂 Birthday Parties</span>
+                    </div>
+                </div>
+
+                <!-- CATERING PACKAGES -->
+                <h3 style="text-align: center; font-size: 26px; margin-bottom: 30px; color: var(--primary-green);">Catering Packages</h3>
+                <p style="text-align: center; margin-bottom: 30px; font-size: 14px; color: #666;">Minimum 25 guests for all packages. Includes plates, napkins, and utensils.</p>
+
+                <div class="menu-grid">
+                    <!-- PIZZA & PASTA PACKAGES -->
+                    <div class="menu-category">
+                        <h3>🍕 Pizza & Pasta Packages</h3>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">Pizza Madness<span class="favorite">★</span></span>
+                                <span class="menu-item-price">$15/person</span>
+                            </div>
+                            <p class="menu-item-desc">A variety of our delicious pizzas served buffet style. Includes Caesar salad and breadsticks.</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">Pasta Mania</span>
+                                <span class="menu-item-price">$16/person</span>
+                            </div>
+                            <p class="menu-item-desc">Choice of 2 pastas (Spaghetti, Mostaccioli, Fettuccine Alfredo, or Baked Mostaccioli) with marinara and meat sauce. Includes Caesar salad and garlic bread.</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">Pizza & Pasta Combo<span class="favorite">★</span></span>
+                                <span class="menu-item-price">$17/person</span>
+                            </div>
+                            <p class="menu-item-desc">The best of both worlds! Assorted pizzas plus choice of pasta. Includes Caesar salad and garlic bread.</p>
+                        </div>
+                        <p class="menu-note">All packages include soft drinks. Add $2/person for iced tea or lemonade.</p>
+                    </div>
+
+                    <!-- DINNER BUFFET -->
+                    <div class="menu-category">
+                        <h3>🍽️ Dinner Buffet</h3>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">2 Entrée Buffet</span>
+                                <span class="menu-item-price">$23.99/person</span>
+                            </div>
+                            <p class="menu-item-desc">Choose 2 entrées from our selection. Includes house salad, 2 sides, rolls, and butter.</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">3 Entrée Buffet<span class="favorite">★</span></span>
+                                <span class="menu-item-price">$26.99/person</span>
+                            </div>
+                            <p class="menu-item-desc">Choose 3 entrées from our selection. Includes house salad, 2 sides, rolls, and butter.</p>
+                        </div>
+                        <p class="menu-item-desc" style="margin-top: 15px;"><strong>Entrée Options:</strong> Chicken Parmigiana, Chicken Marsala, Baked Mostaccioli, Lasagna, Mama's Fried Chicken, Sausage & Peppers, Italian Beef, Meatballs</p>
+                        <p class="menu-item-desc" style="margin-top: 10px;"><strong>Side Options:</strong> Mashed Potatoes, Roasted Vegetables, Green Beans, Mac & Cheese, Fettuccine Alfredo</p>
+                    </div>
+
+                    <!-- APPETIZER TRAYS -->
+                    <div class="menu-category">
+                        <h3>🥗 Appetizer Trays</h3>
+                        <p class="menu-item-desc" style="margin-bottom: 15px;">Perfect for cocktail hour or as additions to any package</p>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">Meatball Tray (50 pieces)</span>
+                                <span class="menu-item-price">$65.00</span>
+                            </div>
+                            <p class="menu-item-desc">Italian meatballs in marinara sauce</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">Chicken George Tray (50 pieces)</span>
+                                <span class="menu-item-price">$75.00</span>
+                            </div>
+                            <p class="menu-item-desc">Our famous chicken tenders with dipping sauces</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">Bone-In Wings Tray (50 pieces)</span>
+                                <span class="menu-item-price">$85.00</span>
+                            </div>
+                            <p class="menu-item-desc">Choice of sauce: Hot, Mild, BBQ, Garlic Parmesan</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">Bruschetta Tray (40 pieces)</span>
+                                <span class="menu-item-price">$55.00</span>
+                            </div>
+                            <p class="menu-item-desc">Toasted crostini with tomato, basil, and balsamic</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">Veggie & Dip Tray</span>
+                                <span class="menu-item-price">$45.00</span>
+                            </div>
+                            <p class="menu-item-desc">Fresh seasonal vegetables with ranch dip (serves 25)</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">Antipasto Platter</span>
+                                <span class="menu-item-price">$95.00</span>
+                            </div>
+                            <p class="menu-item-desc">Italian meats, cheeses, olives, peppers, and crackers (serves 25)</p>
+                        </div>
+                    </div>
+
+                    <!-- OUTSIDE CATERING ENTREES -->
+                    <div class="menu-category">
+                        <h3>📦 Outside Catering Entrées</h3>
+                        <p class="menu-item-desc" style="margin-bottom: 15px;">For off-site events. Pans come with heating instructions.</p>
+                        <table class="pizza-table">
+                            <tr>
+                                <th>Entrée</th>
+                                <th>Half Pan<br><small>(12-15)</small></th>
+                                <th>Full Pan<br><small>(25-30)</small></th>
+                            </tr>
+                            <tr><td>Baked Mostaccioli</td><td>$55</td><td>$95</td></tr>
+                            <tr><td>Lasagna</td><td>$65</td><td>$115</td></tr>
+                            <tr><td>Fettuccine Alfredo</td><td>$60</td><td>$105</td></tr>
+                            <tr><td>Chicken Parmigiana</td><td>$75</td><td>$135</td></tr>
+                            <tr><td>Chicken Marsala</td><td>$80</td><td>$145</td></tr>
+                            <tr><td>Sausage & Peppers</td><td>$60</td><td>$105</td></tr>
+                            <tr><td>Meatballs in Sauce</td><td>$55</td><td>$95</td></tr>
+                            <tr><td>Italian Beef</td><td>$85</td><td>$155</td></tr>
+                        </table>
+                        <p class="menu-note">Add Caesar Salad: Half $35 | Full $60<br>Add Garlic Bread: Half $15 | Full $25</p>
+                    </div>
+
+                    <!-- CATERING DESSERTS -->
+                    <div class="menu-category">
+                        <h3>🍰 Catering Desserts</h3>
+                        <p class="menu-item-desc" style="margin-bottom: 15px;">Small portion desserts perfect for large groups</p>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">Mini Cannoli (25 pieces)</span>
+                                <span class="menu-item-price">$75.00</span>
+                            </div>
+                            <p class="menu-item-desc">Classic Italian cannoli, bite-sized</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">Tiramisu Cups (25 pieces)</span>
+                                <span class="menu-item-price">$85.00</span>
+                            </div>
+                            <p class="menu-item-desc">Individual portions of our signature tiramisu</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">Mini Cheesecakes (25 pieces)</span>
+                                <span class="menu-item-price">$85.00</span>
+                            </div>
+                            <p class="menu-item-desc">New York style cheesecake bites</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">Brownie Bites (30 pieces)</span>
+                                <span class="menu-item-price">$55.00</span>
+                            </div>
+                            <p class="menu-item-desc">Rich chocolate brownies, individually wrapped</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <span class="menu-item-name">Assorted Cookie Tray (36 pieces)</span>
+                                <span class="menu-item-price">$45.00</span>
+                            </div>
+                            <p class="menu-item-desc">Variety of fresh baked Italian cookies</p>
+                        </div>
+                    </div>
+
+                    <!-- CATERING CONTACT -->
+                    <div class="menu-category" style="background: linear-gradient(135deg, #1a5d1a22, #1a5d1a11); border-left-color: var(--primary-green);">
+                        <h3 style="color: var(--primary-green);">📞 Book Your Event</h3>
+                        <p style="font-size: 16px; line-height: 1.8; margin-bottom: 20px;">
+                            Ready to plan your special event? Our catering team is here to help make your occasion memorable.
+                        </p>
+                        <p style="font-size: 18px; margin-bottom: 10px;"><strong>Call:</strong> <a href="tel:815-235-8700" style="color: var(--primary-green);">(815) 235-8700</a></p>
+                        <p style="font-size: 18px; margin-bottom: 20px;"><strong>Email:</strong> <a href="mailto:ciminosalvo@yahoo.com" style="color: var(--primary-green);">ciminosalvo@yahoo.com</a></p>
+                        <p style="font-size: 14px; color: #666; font-style: italic;">
+                            We recommend booking at least 2 weeks in advance for private events.
+                            Custom menus available upon request.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-cta">
+                <p style="margin-bottom: 20px; font-size: 18px;"><strong>Order Online or Call Us!</strong></p>
+                <a href="https://www.doordash.com/store/cimino's-little-itay-freeport-1278365/" class="btn btn-primary" target="_blank">Order on DoorDash</a>
+                <a href="tel:815-235-8700" class="btn btn-secondary" style="color: var(--dark); border-color: var(--dark);">Call (815) 235-8700</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALS BANNER -->
+    <section class="specials">
+        <div class="container">
+            <h2>🐟 Fish Friday Special!</h2>
+            <p>3 Piece Cod Special - Fried or Grilled - $12.99</p>
+            <a href="tel:815-235-8700" class="btn btn-primary">Order Now</a>
+        </div>
+    </section>
+
+    <!-- HOURS & LOCATION -->
+    <section class="info-section" id="hours">
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>⏰ Hours</h3>
+                <ul class="hours-list">
+                    <li><span>Monday - Thursday</span><span>11:00 AM - 10:00 PM</span></li>
+                    <li><span>Friday - Saturday</span><span>11:00 AM - 12:00 AM</span></li>
+                    <li><span>Sunday</span><span>11:00 AM - 9:00 PM</span></li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>📍 Location</h3>
+                <div class="address">
+                    <p>421 Challenge St</p>
+                    <p>Freeport, IL 61032</p>
+                    <a href="https://maps.google.com/?q=421+Challenge+St+Freeport+IL+61032" target="_blank">Get Directions →</a>
+                </div>
+            </div>
+            <div class="info-card" id="contact">
+                <h3>📞 Contact Us</h3>
+                <div class="contact-info">
+                    <p>Phone: <a href="tel:815-235-8700">(815) 235-8700</a></p>
+                    <p>Email: <a href="mailto:ciminosalvo@yahoo.com">ciminosalvo@yahoo.com</a></p>
+                    <p style="margin-top: 20px;">We're open for Dine-In, Takeout & Delivery!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2954.5!2d-89.6212!3d42.2967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8808e3e9c8f5d5d5%3A0x0!2s421%20Challenge%20St%2C%20Freeport%2C%20IL%2061032!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Cimino's Little Italy</h4>
+                <p>Freeport's Premier Italian Restaurant & Pizzeria</p>
+                <p>Family Owned Since 1977</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">f</a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">𝕏</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#menu">Menu</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>421 Challenge St</p>
+                <p>Freeport, IL 61032</p>
+                <a href="tel:815-235-8700">(815) 235-8700</a>
+                <a href="mailto:ciminosalvo@yahoo.com">ciminosalvo@yahoo.com</a>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <p>Dine-In</p>
+                <p>Takeout</p>
+                <p>Delivery</p>
+                <p>Banquets & Catering</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Cimino's Little Italy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        }
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => document.getElementById('nav-menu').classList.remove('active'));
+        });
+    </script>
 </body>
 </html>
