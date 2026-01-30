@@ -101,9 +101,45 @@
         .about h2 { font-size: 36px; margin-bottom: 20px; color: var(--primary-green); }
         .about p { max-width: 800px; margin: 0 auto 30px; font-size: 18px; }
         .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
-        .feature { padding: 30px; background: var(--white); border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
+        .feature { padding: 30px; background: var(--white); border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); overflow: hidden; }
+        .feature-img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
         .feature-icon { font-size: 48px; margin-bottom: 15px; }
         .feature h3 { font-size: 22px; margin-bottom: 10px; color: var(--primary-red); }
+
+        /* PHOTO GALLERY */
+        .gallery { padding: 60px 20px; background: var(--white); }
+        .gallery h2 { text-align: center; font-size: 32px; margin-bottom: 30px; color: var(--primary-green); }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 40px 15px 15px;
+            font-weight: 600;
+        }
 
         /* FULL MENU */
         .full-menu { background-color: var(--white); padding: 80px 20px; }
@@ -277,7 +313,7 @@
         <div class="container">
             <h1>Authentic Italian Cuisine</h1>
             <p>Pizza, Pasta, and More Italian Favorites Since 1977</p>
-            <a href="https://www.doordash.com/store/cimino's-little-itay-freeport-1278365/" class="btn btn-primary" target="_blank">Order on DoorDash</a>
+            <a href="https://order.online/store/1278365?pickup=true&redirected=true" class="btn btn-primary" target="_blank">Order Online</a>
             <a href="#menu" class="btn btn-secondary">View Menu</a>
         </div>
     </section>
@@ -296,19 +332,52 @@
             </p>
             <div class="features">
                 <div class="feature">
-                    <div class="feature-icon">🍕</div>
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Fresh Pizza" class="feature-img">
                     <h3>Fresh Made Pizza</h3>
                     <p>Hand-tossed dough, homemade sauce, and premium toppings on every pie.</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400" alt="Restaurant Interior" class="feature-img">
                     <h3>Family Owned</h3>
                     <p>Serving Freeport with love and authentic recipes since 1977.</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">🚗</div>
+                    <img src="https://images.unsplash.com/photo-1526367790999-0150786686a2?w=400" alt="Food Delivery" class="feature-img">
                     <h3>Dine-In, Takeout & Delivery</h3>
                     <p>Enjoy our food however is most convenient for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO GALLERY -->
+    <section class="gallery">
+        <div class="container">
+            <h2>Our Food & Restaurant</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600" alt="Fresh Pizza">
+                    <div class="caption">Fresh Made Pizza</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=600" alt="Pasta Dish">
+                    <div class="caption">Homemade Pasta</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600" alt="Restaurant Dining">
+                    <div class="caption">Elegant Dining</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600" alt="Italian Restaurant Interior">
+                    <div class="caption">Warm Atmosphere</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600" alt="Appetizers">
+                    <div class="caption">Delicious Starters</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1595295333158-4742f28fbd85?w=600" alt="Calzone">
+                    <div class="caption">Golden Calzones</div>
                 </div>
             </div>
         </div>
@@ -997,15 +1066,51 @@
                 <div class="menu-category" id="sides">
                     <h3>🍟 Premium Sides</h3>
                     <p class="menu-item-desc" style="margin-bottom: 15px; font-weight: bold;">$5.00 each</p>
-                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Asparagus</span></div></div>
-                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mac & Cheese</span></div></div>
-                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Broccoli</span></div></div>
-                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">French Fries</span></div></div>
-                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Onion Rings</span></div></div>
-                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Coleslaw</span></div></div>
-                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mashed Potatoes & Gravy</span></div></div>
-                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Fettuccine Alfredo</span></div></div>
-                    <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Spaghetti with Marinara</span></div></div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Asparagus</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Mac & Cheese</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Broccoli</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">French Fries</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Onion Rings</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Coleslaw</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Mashed Potatoes & Gravy</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Fettuccine Alfredo</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Spaghetti with Marinara</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- DESSERTS -->
@@ -1196,14 +1301,46 @@
                                 <th>Half Pan<br><small>(12-15)</small></th>
                                 <th>Full Pan<br><small>(25-30)</small></th>
                             </tr>
-                            <tr><td>Baked Mostaccioli</td><td>$55</td><td>$95</td></tr>
-                            <tr><td>Lasagna</td><td>$65</td><td>$115</td></tr>
-                            <tr><td>Fettuccine Alfredo</td><td>$60</td><td>$105</td></tr>
-                            <tr><td>Chicken Parmigiana</td><td>$75</td><td>$135</td></tr>
-                            <tr><td>Chicken Marsala</td><td>$80</td><td>$145</td></tr>
-                            <tr><td>Sausage & Peppers</td><td>$60</td><td>$105</td></tr>
-                            <tr><td>Meatballs in Sauce</td><td>$55</td><td>$95</td></tr>
-                            <tr><td>Italian Beef</td><td>$85</td><td>$155</td></tr>
+                            <tr>
+                                <td>Baked Mostaccioli</td>
+                                <td>$55</td>
+                                <td>$95</td>
+                            </tr>
+                            <tr>
+                                <td>Lasagna</td>
+                                <td>$65</td>
+                                <td>$115</td>
+                            </tr>
+                            <tr>
+                                <td>Fettuccine Alfredo</td>
+                                <td>$60</td>
+                                <td>$105</td>
+                            </tr>
+                            <tr>
+                                <td>Chicken Parmigiana</td>
+                                <td>$75</td>
+                                <td>$135</td>
+                            </tr>
+                            <tr>
+                                <td>Chicken Marsala</td>
+                                <td>$80</td>
+                                <td>$145</td>
+                            </tr>
+                            <tr>
+                                <td>Sausage & Peppers</td>
+                                <td>$60</td>
+                                <td>$105</td>
+                            </tr>
+                            <tr>
+                                <td>Meatballs in Sauce</td>
+                                <td>$55</td>
+                                <td>$95</td>
+                            </tr>
+                            <tr>
+                                <td>Italian Beef</td>
+                                <td>$85</td>
+                                <td>$155</td>
+                            </tr>
                         </table>
                         <p class="menu-note">Add Caesar Salad: Half $35 | Full $60<br>Add Garlic Bread: Half $15 | Full $25</p>
                     </div>
@@ -1267,7 +1404,7 @@
 
             <div class="menu-cta">
                 <p style="margin-bottom: 20px; font-size: 18px;"><strong>Order Online or Call Us!</strong></p>
-                <a href="https://www.doordash.com/store/cimino's-little-itay-freeport-1278365/" class="btn btn-primary" target="_blank">Order on DoorDash</a>
+                <a href="https://order.online/store/1278365?pickup=true&redirected=true" class="btn btn-primary" target="_blank">Order Online</a>
                 <a href="tel:815-235-8700" class="btn btn-secondary" style="color: var(--dark); border-color: var(--dark);">Call (815) 235-8700</a>
             </div>
         </div>
